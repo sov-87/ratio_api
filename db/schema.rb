@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 2018_07_30_124501) do
     t.integer "to_currency_id"
     t.decimal "buy"
     t.decimal "sell"
-    t.datetime "day"
+    t.datetime "ts"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["from_currency_id"], name: "index_avg_day_ratios_on_from_currency_id"
     t.index ["to_currency_id"], name: "index_avg_day_ratios_on_to_currency_id"
   end

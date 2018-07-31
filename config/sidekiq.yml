@@ -1,0 +1,4 @@
+:schedule:
+  download_rates_job:
+    cron: '0 * * * * *'   # Runs once per hour
+    class: DownloadRatesJob

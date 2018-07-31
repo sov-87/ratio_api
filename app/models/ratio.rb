@@ -1,4 +1,6 @@
 class Ratio < ApplicationRecord
+  include Scopes::RatioConcern
+
   belongs_to :from_currency, class_name: 'Currency'
   belongs_to :to_currency, class_name: 'Currency'
 
@@ -6,11 +8,11 @@ class Ratio < ApplicationRecord
 
   private
   def update_avg_day_ratio
-    ratio_day = ts.to_date
+    ratio_day = ts.beginning_of_day
     avg_day_ratio = AvgDayRatio.find_or_create_by(
       from_currency_id: from_currency_id,
       to_currency_id: to_currency_id,
-      day: ratio_day
+      ts: ratio_day
     )
     today_ratios = Ratio
       .where(from_currency_id: from_currency_id, to_currency_id: to_currency_id)

@@ -26,6 +26,9 @@ gem 'puma', '~> 3.11'
 
 gem 'rest-client'
 
+gem 'sidekiq', '~> 5.1'
+gem 'sidekiq-scheduler'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -34,6 +37,7 @@ group :development, :test do
   gem 'vcr', '~> 4.0'
   gem 'webmock'
   gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails', '~> 4.10'
 end
 
 group :development do

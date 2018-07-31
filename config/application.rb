@@ -32,5 +32,6 @@ module RatioApi
     config.api_only = true
 
     config.active_record.sqlite3.represent_boolean_as_integer = true
+    config.active_job.queue_adapter = :sidekiq
   end
 end

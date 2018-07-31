@@ -3,6 +3,7 @@ class TinkoffRatios
 
   def download_ratios
     response = RestClient.get API_URL
+    logger.info response
 
     data = ActiveSupport::JSON.decode(response.body.to_s)
     date = Time.at(data['payload']['lastUpdate']['milliseconds'].to_i/1000)
@@ -11,14 +12,13 @@ class TinkoffRatios
     end.each do |rate|
       fill_currencies([rate['fromCurrency'], rate['toCurrency']])
       ratio = Ratio.create(
-        from_currency: Currency.find_by(name: rate['fromCurrency']['name']),
-        to_currency: Currency.find_by(name: rate['toCurrency']['name']),
+        from_currency_id: Currency.find_by(name: rate['fromCurrency']['name']).id,
+        to_currency_id: Currency.find_by(name: rate['toCurrency']['name']).id,
         buy: rate['buy'],
         sell: rate['sell'],
         ts: date
       )
     end
-    logger.info response
   end
 
   private

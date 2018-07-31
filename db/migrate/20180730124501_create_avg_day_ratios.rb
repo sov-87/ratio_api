@@ -5,8 +5,9 @@ class CreateAvgDayRatios < ActiveRecord::Migration[5.2]
       t.references :to_currency, foreign_key: { to_table: :currencies }
       t.decimal :buy
       t.decimal :sell
+      t.timestamp :ts
 
-      t.timestamp :day
+      t.timestamps
     end
   end
 end
