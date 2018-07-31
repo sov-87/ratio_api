@@ -26,6 +26,8 @@ gem 'puma', '~> 3.11'
 
 gem 'rest-client'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 gem 'sidekiq', '~> 5.1'
 gem 'sidekiq-scheduler'
 

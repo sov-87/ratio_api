@@ -1,24 +1,19 @@
-# README
+ruby
+----
+`bundle install`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Then run sidekiq to aquire raios.
 
-Things you may want to cover:
+`sidekiq`
 
-* Ruby version
+`rails s`
 
-* System dependencies
+Build frontend
+--------------
+`cd frontend`
+`yarn`
+`npx webpack`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+See result
+----------
+http://localhost:3000/ratio_info.html
